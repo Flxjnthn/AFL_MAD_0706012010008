@@ -56,14 +56,19 @@ public class UpComingAdapter extends RecyclerView.Adapter<UpComingAdapter.UpComi
         final UpComing.Results results = getListUpComing().get(position);
         Glide.with(context).load(Const.IMG_URL + results.getPoster_path()).into(holder.img_upcoming);
         holder.title_upcoming.setText(results.getTitle());
-        holder.overview_upcoming.setText(results.getOverview());
-        holder.release_date_upcoming.setText(results.getRelease_date());
+//        holder.overview_upcoming.setText(results.getOverview());
+        holder.release_date_upcoming.setText("(" + results.getRelease_date().substring(0, 4) + ")");
 
         holder.upcoming_cv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
-                bundle.putParcelable("upcoming", results);
+                bundle.putString("movie_id", "" + results.getId());
+                bundle.putString("movie_title", "" + results.getTitle());
+                bundle.putString("movie_overview", "" + results.getOverview());
+                bundle.putString("movie_releasedate", "" + results.getRelease_date());
+                bundle.putString("movie_rate", "" + results.getVote_average());
+                bundle.putString("movie_langguae", "" + results.getOriginal_language());
                 Navigation.findNavController(view).navigate(R.id.action_upComingFragment_to_movieDetailsFragment, bundle);
             }
         });
@@ -89,7 +94,7 @@ public class UpComingAdapter extends RecyclerView.Adapter<UpComingAdapter.UpComi
             img_upcoming = itemView.findViewById(R.id.img_upcoming_fragment);
             title_upcoming = itemView.findViewById(R.id.title_upcoming_fragment);
             release_date_upcoming = itemView.findViewById(R.id.releasedate_upcoming_fragment);
-            overview_upcoming = itemView.findViewById(R.id.synopsis_upcoming_fragment);
+//            overview_upcoming = itemView.findViewById(R.id.synopsis_upcoming_fragment);
             upcoming_cv = itemView.findViewById(R.id.cv_card_upcoming);
         }
     }

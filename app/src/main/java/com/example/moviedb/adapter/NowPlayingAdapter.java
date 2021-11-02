@@ -69,9 +69,15 @@ public class NowPlayingAdapter extends RecyclerView.Adapter<NowPlayingAdapter.Ca
 //                        .load(Const.IMG_URL + results.getPoster_path())
 //                        .into(holder.img_poster));
 //                context.startActivity(intent);
+
                 Bundle bundle = new Bundle();
-//                bundle.putString("movieId", "" + results);
-                bundle.putParcelable("movie", results);
+                bundle.putString("movie_id", "" + results.getId());
+                bundle.putString("movie_title", "" + results.getTitle());
+                bundle.putString("movie_overview", "" + results.getOverview());
+                bundle.putString("movie_releasedate", "" + results.getRelease_date());
+                bundle.putString("movie_rate", "" + results.getVote_average());
+                bundle.putString("movie_langguae", "" + results.getOriginal_language());
+//                bundle.putParcelable("movie", results);
 
                 Navigation.findNavController(view).navigate(R.id.
                     action_nowPlayingFragment_to_movieDetailsFragment, bundle);
@@ -86,7 +92,7 @@ public class NowPlayingAdapter extends RecyclerView.Adapter<NowPlayingAdapter.Ca
 
     public class CardViewHolder extends RecyclerView.ViewHolder {
         ImageView img_poster;
-        TextView lbl_title, lbl_overview, lbl_release_date;
+        TextView lbl_title, lbl_overview, lbl_release_date, lbl_vote_count;
         CardView cv;
 
 

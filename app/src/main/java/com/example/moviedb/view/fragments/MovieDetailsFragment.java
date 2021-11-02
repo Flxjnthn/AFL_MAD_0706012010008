@@ -86,13 +86,27 @@ public class MovieDetailsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_movie_details, container, false);
-        lbl_movie_id = view.findViewById(R.id.lbl_movie_id);
+//        lbl_movie_id = view.findViewById(R.id.lbl_movie_id);
+        title_movie_details_fragment = view.findViewById(R.id.title_movie_details_fragment);
+        synopsis_movie_details_fragment = view.findViewById(R.id.synopsis_movie_details_fragment);
+        years_movie_details_fragment = view.findViewById(R.id.years_movie_details_fragment);
+        rate_movie_details_fragment = view.findViewById(R.id.rate_movie_details_fragment);
 
-        String movieId = getArguments().getString("movieId");
-        lbl_movie_id.setText(movieId);
 
-//        NowPlaying.Results moviedetails = getArguments().getParcelable("movie");
-//        UpComing.Results upcoming = getArguments().getParcelable("upcoming");
+//        String movieId = getArguments().getString("movie_id").toString();
+        String movieTitle = getArguments().getString("movie_title").toString();
+        String Overview = getArguments().getString("movie_overview").toString();
+        String date = getArguments().getString("movie_releasedate").toString();
+        String rate = getArguments().getString("movie_rate").toString();
+
+
+        title_movie_details_fragment.setText(movieTitle);
+//        lbl_movie_id.setText(movieId);
+        synopsis_movie_details_fragment.setText(Overview);
+        years_movie_details_fragment.setText(date);
+        rate_movie_details_fragment.setText(rate);
+
+
 //
 //        if (moviedetails != null) {
 //            Glide.with(getActivity().getApplicationContext()).load(Const.IMG_URL + moviedetails.getBackdrop_path()).into(img_moviedetails_fragment);
@@ -146,9 +160,10 @@ public class MovieDetailsFragment extends Fragment {
 //        company_movie_details_fragment_rv = view.findViewById(R.id.company_movie_details_fragment_rv);
 //        viewModel = new ViewModelProvider(this).get(MovieViewModel.class);
 //    }
-
         return view;
+
     }
 }
+
 
 

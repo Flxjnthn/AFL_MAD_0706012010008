@@ -12,7 +12,7 @@
         android:label="@string/movie_details"
         tools:layout="@layout/fragment_movie_details" >
         <argument
-            android:name="movieId"
+            android:name="movie_id"
             app:argType="string"
             android:defaultValue="null" />
     </fragment>
