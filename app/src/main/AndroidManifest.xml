@@ -9,7 +9,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/tmdb_logo"
+        android:icon="@drawable/ic_now_playing_24"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/tmdb_logo_round"
         android:supportsRtl="true"
